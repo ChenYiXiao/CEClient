@@ -3,5 +3,10 @@
 
     <string name="hello">Hello World, CEClientActivity!</string>
     <string name="app_name">CEClient</string>
-
+    <string name="main_home">首页</string>
+	<string name="main_news">新闻</string>
+	<string name="main_messages">消息</string>
+	<string name="main_friends">好友</string>
+	<string name="main_more">更多</string>
+	<string name="main_square">广场</string>
 </resources>

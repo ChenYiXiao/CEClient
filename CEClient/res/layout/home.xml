@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+ <RadioGroup  
+                android:gravity="center_vertical" android:layout_gravity="bottom" android:orientation="horizontal" android:id="@+id/main_radio" android:background="@drawable/home_top_bg" 
+                android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingLeft="5px" android:paddingRight="5px" android:layout_marginTop="2dp">
+
+     <RadioButton
+         android:id="@+id/RadioButton01"
+         android:layout_height="wrap_content"
+         android:text="广场首页" android:background="@drawable/home_top_btn_bg" android:drawableLeft="@drawable/home_radbtn_left" android:cursorVisible="true" android:layout_weight="1" android:checked=""/>
+    
+    <RadioButton
+        android:id="@+id/radioButton1"
+        android:layout_height="wrap_content"
+        android:text="个人中心" android:background="@drawable/home_btn_bg" android:layout_weight="1"/>
+</RadioGroup>
+</LinearLayout>
