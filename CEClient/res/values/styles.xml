@@ -12,7 +12,7 @@
         <item name="android:drawablePadding">@dimen/bottom_tab_padding_drawable</item>
         <item name="android:layout_weight">1.0</item> 
     </style>
-    <style name="home_top_btn">
+    <style name="home_radio_text">
          <item name="android:textColor">#da8102</item> 
     </style>
 </resources>  

@@ -10,11 +10,11 @@
      <RadioButton
          android:id="@+id/RadioButton01"
          android:layout_height="fill_parent"
-         android:text="广场首页" android:background="@drawable/home_top_btn_bg" android:cursorVisible="true" android:layout_weight="1" android:drawableLeft="@drawable/home_radio_left" android:button="@null" android:drawablePadding="20dp" android:layout_margin="6dp" style="@style/home_top_btn"/>
+         android:text="广场首页" android:background="@drawable/home_top_btn_bg" android:cursorVisible="true" android:layout_weight="1" android:drawableLeft="@drawable/home_radio_left" android:button="@null" android:drawablePadding="20dp" android:layout_margin="6dp" style="@style/home_radio_text"/>
     
     <RadioButton
         android:id="@+id/radioButton1"
         android:layout_height="fill_parent"
-        android:text="个人中心" android:background="@drawable/home_top_btn_bg" android:layout_weight="1" android:button="@null" android:drawablePadding="20dp" android:drawableLeft="@drawable/home_radio_right" android:layout_margin="6dp" style="@style/home_top_btn"/>
+        android:text="个人中心" android:background="@drawable/home_top_btn_bg" android:layout_weight="1" android:button="@null" android:drawablePadding="20dp" android:drawableLeft="@drawable/home_radio_right" android:layout_margin="6dp" style="@style/home_radio_text"/>
 </RadioGroup>
 </LinearLayout>
