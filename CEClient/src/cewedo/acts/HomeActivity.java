@@ -1,13 +1,20 @@
 package cewedo.acts;
 
+import cewedo.skn.SkinChangeable;
+import cewedo.skn.SkinManager;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Toast;
 
-public class HomeActivity extends Activity {
+public class HomeActivity extends Activity implements SkinChangeable {
 
 	/* (non-Javadoc)
 	 * @see android.app.Activity#onCreate(android.os.Bundle)
@@ -17,6 +24,7 @@ public class HomeActivity extends Activity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.home);
+		setTitle("da");
 	}
 	/* (non-Javadoc)
 	 * @see android.app.Activity#onKeyUp(int, android.view.KeyEvent)
@@ -41,6 +49,27 @@ public class HomeActivity extends Activity {
 		});
 		builder.setNegativeButton("È¡Ïû", null);
 		builder.create().show();
+		
+	}
+	@Override
+	public void ChangeSkin(String skinNameString) {
+		Toast.makeText(this,"»»·ôÖÐ", 2000).show();
+		SkinManager skinManager;
+		try {
+			skinManager = new SkinManager(skinNameString, this);
+			RadioGroup mainRadioGroup=(RadioGroup)findViewById(R.id.main_radio);
+			mainRadioGroup.setBackgroundDrawable(skinManager.getDrawableResource(R.drawable.home_bg_top));
+			RadioButton leftRadioButton=(RadioButton)findViewById(R.id.home_radio_left);
+			RadioButton rightRadioButton=(RadioButton)findViewById(R.id.home_radio_right);
+			
+			leftRadioButton.setBackgroundDrawable(skinManager.getDrawableResource(R.drawable.home_top_btn_bg));
+			rightRadioButton.setBackgroundDrawable(skinManager.getDrawableResource(R.drawable.home_top_btn_bg));
+
+		} catch (NameNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		
 	}
 }

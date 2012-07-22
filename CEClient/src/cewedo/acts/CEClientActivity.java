@@ -2,13 +2,19 @@ package cewedo.acts;
 
 import cewedo.skn.SkinChangeable;
 import cewedo.skn.SkinManager;
+import android.app.Activity;
+import android.app.ActivityManager;
+import android.app.LocalActivityManager;
 import android.app.TabActivity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
 import android.view.Window;
 import android.widget.CompoundButton;
 import android.widget.RadioButton;
+import android.widget.TabHost.OnTabChangeListener;
+import android.widget.Toast;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.RadioGroup;
 import android.widget.TabHost;
@@ -42,8 +48,8 @@ public class CEClientActivity extends TabActivity implements
 		this.mCIntent = new Intent(this, HomeActivity.class);
 		this.mDIntent = new Intent(this, HomeActivity.class);
 		this.mEIntent = new Intent(this, HomeActivity.class);
-		
-		bottomRadioGroup=(RadioGroup)findViewById(R.id.main_radio);
+
+		bottomRadioGroup = (RadioGroup) findViewById(R.id.main_radio);
 		homeRadioButton = (RadioButton) findViewById(R.id.radio_home);
 		homeRadioButton.setOnCheckedChangeListener(this);
 		squareRadioButton = ((RadioButton) findViewById(R.id.radio_square));
@@ -72,9 +78,11 @@ public class CEClientActivity extends TabActivity implements
 				this.mTabHost.setCurrentTabByTag("C_TAB");
 				break;
 			case R.id.radio_friend:
+				ChangeSkin("default");
 				this.mTabHost.setCurrentTabByTag("D_TAB");
 				break;
 			case R.id.radio_more:
+				ChangeSkin("cewedo.skn");
 				this.mTabHost.setCurrentTabByTag("MORE_TAB");
 				break;
 			}
@@ -82,6 +90,8 @@ public class CEClientActivity extends TabActivity implements
 
 	}
 
+	
+	
 	private void setupIntent() {
 		this.mTabHost = getTabHost();
 		TabHost localTabHost = this.mTabHost;
@@ -101,6 +111,19 @@ public class CEClientActivity extends TabActivity implements
 		localTabHost.addTab(buildTabSpec("MORE_TAB", R.string.main_more,
 				R.drawable.main_radio_more, this.mEIntent));
 
+		localTabHost.setOnTabChangedListener(new OnTabChangeListener() {
+			
+			@Override
+			public void onTabChanged(String tabId) {
+				
+				Context ct = (mTabHost.getCurrentView().getContext());
+				((SkinChangeable)ct).ChangeSkin("cewedo.skn");
+				if(tabId=="D_TAB")
+				{
+					((SkinChangeable)ct).ChangeSkin("default");
+				}
+			}
+		});
 	}
 
 	private TabHost.TabSpec buildTabSpec(String tag, int resLabel, int resIcon,
@@ -114,18 +137,43 @@ public class CEClientActivity extends TabActivity implements
 
 	@Override
 	public void ChangeSkin(String skinNameString) {
+		
 		try {
 			SkinManager skinManager = new SkinManager(skinNameString,
 					CEClientActivity.this);
+			// Ìæ»»ÆäËû±³¾°
 			this.mTabHost.setBackgroundDrawable(skinManager
 					.getDrawableResource(R.drawable.main_bg_main));
-			bottomRadioGroup.setBackgroundColor(R.drawable.main_bottom_bg);
-			homeRadioButton.setBackgroundDrawable(skinManager.getDrawableResource( R.drawable.main_radio_home));
-			squareRadioButton.setBackgroundDrawable(skinManager.getDrawableResource( R.drawable.main_radio_square));
-			messageRadioButton.setBackgroundDrawable(skinManager.getDrawableResource( R.drawable.main_radio_message));
-			friendRadioButtond.setBackgroundDrawable(skinManager.getDrawableResource( R.drawable.main_radio_friend));
-			moreRadioButton.setBackgroundDrawable(skinManager.getDrawableResource(R.drawable.main_radio_more));
-			
+			bottomRadioGroup.setBackgroundDrawable(skinManager
+					.getDrawableResource(R.drawable.main_bottom_bg));
+			// Ìæ»»µ×²¿°´Å¥µÄ±³¾°
+			homeRadioButton.setBackgroundDrawable(skinManager
+					.getDrawableResource(R.drawable.home_btn_bg));
+			squareRadioButton.setBackgroundDrawable(skinManager
+					.getDrawableResource(R.drawable.home_btn_bg));
+			messageRadioButton.setBackgroundDrawable(skinManager
+					.getDrawableResource(R.drawable.home_btn_bg));
+			friendRadioButtond.setBackgroundDrawable(skinManager
+					.getDrawableResource(R.drawable.home_btn_bg));
+			moreRadioButton.setBackgroundDrawable(skinManager
+					.getDrawableResource(R.drawable.home_btn_bg));
+			// Ìæ»»µ×²¿°´Å¥
+			homeRadioButton.setCompoundDrawables(null, skinManager
+					.getRectDrawableResource(R.drawable.main_radio_home), null,
+					null);
+			squareRadioButton.setCompoundDrawables(null, skinManager
+					.getRectDrawableResource(R.drawable.main_radio_square),
+					null, null);
+			messageRadioButton.setCompoundDrawables(null, skinManager
+					.getRectDrawableResource(R.drawable.main_radio_message),
+					null, null);
+			friendRadioButtond.setCompoundDrawables(null, skinManager
+					.getRectDrawableResource(R.drawable.main_radio_friend),
+					null, null);
+			moreRadioButton.setCompoundDrawables(null, skinManager
+					.getRectDrawableResource(R.drawable.main_radio_more), null,
+					null);
+
 		} catch (NameNotFoundException e) {
 		}
 
