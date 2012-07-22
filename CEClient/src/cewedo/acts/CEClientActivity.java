@@ -1,12 +1,8 @@
 package cewedo.acts;
 
-import android.app.AlertDialog;
 import android.app.TabActivity; 
-import android.app.AlertDialog.Builder;
-import android.content.DialogInterface;
 import android.content.Intent; 
 import android.os.Bundle; 
-import android.view.KeyEvent;
 import android.view.Window; 
 import android.widget.CompoundButton; 
 import android.widget.RadioButton; 
@@ -78,20 +74,20 @@ public class CEClientActivity extends TabActivity implements OnCheckedChangeList
         TabHost localTabHost = this.mTabHost; 
 
         localTabHost.addTab(buildTabSpec("A_TAB", R.string.main_home, 
-                R.drawable.main_btn_home, this.mAIntent)); 
+                R.drawable.main_radio_home, this.mAIntent)); 
 
         localTabHost.addTab(buildTabSpec("B_TAB", R.string.main_messages, 
-                R.drawable.main_btn_square, this.mBIntent)); 
+                R.drawable.main_radio_square, this.mBIntent)); 
 
         localTabHost.addTab(buildTabSpec("C_TAB", 
-                R.string.main_messages, R.drawable.main_btn_message, 
+                R.string.main_messages, R.drawable.main_radio_message, 
                 this.mCIntent)); 
 
         localTabHost.addTab(buildTabSpec("D_TAB", R.string.main_friends, 
-                R.drawable.main_btn_friend, this.mDIntent)); 
+                R.drawable.main_radio_friend, this.mDIntent)); 
 
         localTabHost.addTab(buildTabSpec("MORE_TAB", R.string.main_more, 
-                R.drawable.main_btn_more, this.mEIntent)); 
+                R.drawable.main_radio_more, this.mEIntent)); 
 
     } 
      

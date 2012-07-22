@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="hello">Hello World, CEClientActivity!</string>
-    <string name="app_name">CEClient</string>
+    <string name="app_name">滔客</string>
     <string name="main_home">首页</string>
 	<string name="main_news">新闻</string>
 	<string name="main_messages">消息</string>
