@@ -13,6 +13,6 @@
         <item name="android:layout_weight">1.0</item> 
     </style>
     <style name="home_radio_text">
-         <item name="android:textColor">#da8102</item> 
+         <item name="android:textColor">#ffffff</item> 
     </style>
 </resources>  
