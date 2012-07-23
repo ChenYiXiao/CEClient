@@ -1,5 +1,6 @@
 package cewedo.acts;
 
+import cewedo.menu.MenuManager;
 import cewedo.skn.SkinChangeable;
 import cewedo.skn.SkinManager;
 import android.app.Activity;
@@ -10,6 +11,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
+import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.Window;
 import android.widget.CompoundButton;
 import android.widget.RadioButton;
@@ -178,4 +183,14 @@ public class CEClientActivity extends TabActivity implements
 		}
 
 	}
+  
+
+	 @Override
+     public boolean onKeyUp(int keyCode, KeyEvent event) {
+         if(keyCode==KeyEvent.KEYCODE_MENU) {
+            this.getLocalActivityManager().getCurrentActivity().openOptionsMenu();
+         }
+        return super.onKeyDown(keyCode, event);
+     }
+	
 }
