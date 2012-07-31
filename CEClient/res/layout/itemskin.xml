@@ -13,18 +13,18 @@
         android:layout_height="wrap_content"
         android:layout_weight="1" android:background="@drawable/border" android:padding="5dp">
   
-        <ImageButton
+        <ImageView
         android:id="@+id/imgPreview"
         android:layout_width="93dp"
         android:layout_weight="1"
         android:layout_height="149dp"
-        android:src="@drawable/preview1" android:background="@null" android:scaleType="fitCenter" android:layout_gravity="fill"/>
+        android:src="@drawable/preview1" android:background="@null" android:scaleType="fitCenter" android:layout_gravity="fill" android:clickable="false" android:focusable="false"/>
     </FrameLayout>
 
     <TextView
         android:id="@+id/tvSkinName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal" android:text="Mt" android:textSize="16sp"/>
+        android:layout_gravity="center_horizontal" android:text="Mt" android:textSize="16sp" android:clickable="false" android:focusable="false"/>
 
 </LinearLayout>
