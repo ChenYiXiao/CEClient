@@ -5,12 +5,10 @@ import cewedo.skn.SkinChangeable;
 import android.app.Activity;
 import android.os.Bundle;
 
-public class BaseAcitivity extends Activity implements SkinChangeable{
-	protected String mCurrentSkinPakageNameString="";
-	
+public class BaseActivity extends Activity implements SkinChangeable{
+	public Boolean mNeedChange=false;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		
 		super.onCreate(savedInstanceState);
 		Global.getCurrentAcitivities().add(this);
 	}
@@ -26,9 +24,24 @@ public class BaseAcitivity extends Activity implements SkinChangeable{
 	}
 
 	@Override
-	public void ChangeSkin(String skinPackageString) {
-		mCurrentSkinPakageNameString=skinPackageString;
-		
+	public void ChangeSkin() {
+		setmNeedChange(false);
 	}
 
+
+
+	/**
+	 * @return the mNeedChange
+	 */
+	public Boolean getmNeedChange() {
+		return mNeedChange;
+	}
+
+	/**
+	 * @param mNeedChange the mNeedChange to set
+	 */
+	public void setmNeedChange(Boolean mNeedChange) {
+		this.mNeedChange = mNeedChange;
+	}
+	
 }
