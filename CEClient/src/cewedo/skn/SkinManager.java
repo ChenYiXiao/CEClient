@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cewedo.acts.R;
+import cewedo.others.CEConfiguration;
 import cewedo.others.CommonOperation;
+import cewedo.others.Global;
 
 import android.R.integer;
 import android.R.style;
@@ -150,5 +152,20 @@ public class SkinManager {
 		int indentify = resources.getIdentifier(mContext.getPackageName()
 				+ ":drawable/" + nameString, null, null);
 		return indentify;
+	}
+	public static void setNightMode(Context context)
+	{
+		final String skinName = "滔客夜间模式";
+		final String skinPackageName = "cewedo.skn_night";
+		CEConfiguration.setSkinName(context, skinName);
+		CEConfiguration.setSkinPackageName(context, skinPackageName);
+		SkinManager.updateActsSkin();
+	}
+	public static void updateActsSkin()
+	{
+		for (Activity activity: Global.getCurrentAcitivities())
+		{
+			((SkinChangeable)activity).ChangeSkin();
+		}
 	}
 }
