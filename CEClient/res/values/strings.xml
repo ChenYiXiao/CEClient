@@ -9,4 +9,11 @@
 	<string name="main_more">更多</string>
 	<string name="main_square">广场</string>
 	<string name="skin_title">请选择主题</string>
+	<string name="setting">设置</string>
+	<string name="accountManagement">账号管理</string>
+	<string name="skinManagement">主题管理</string>
+	<string name="skinNight">夜间模式</string>
+	<string name="about">关于</string>
+	<string name="exit">退出</string>
+	<string name="skinDay">日间模式</string>
 </resources>
