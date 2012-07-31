@@ -1,6 +1,7 @@
 package cewedo.acts;
 
 import cewedo.menu.MenuManager;
+import cewedo.others.CEConfiguration;
 import cewedo.skn.SkinChangeable;
 import cewedo.skn.SkinManager;
 import android.app.Activity;
@@ -10,6 +11,7 @@ import android.app.TabActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -24,7 +26,7 @@ import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.RadioGroup;
 import android.widget.TabHost;
 
-public class CEClientActivity extends TabActivity implements
+public class CEClientActivity extends BaseTabActivity implements
 		OnCheckedChangeListener, SkinChangeable {
 
 	private TabHost mTabHost;
@@ -67,6 +69,7 @@ public class CEClientActivity extends TabActivity implements
 		moreRadioButton.setOnCheckedChangeListener(this);
 
 		setupIntent();
+		ChangeSkin();
 	}
 
 	@Override
@@ -83,11 +86,11 @@ public class CEClientActivity extends TabActivity implements
 				this.mTabHost.setCurrentTabByTag("C_TAB");
 				break;
 			case R.id.radio_friend:
-				ChangeSkin("default");
+				ChangeSkin();
 				this.mTabHost.setCurrentTabByTag("D_TAB");
 				break;
 			case R.id.radio_more:
-				ChangeSkin("cewedo.skn");
+				ChangeSkin();
 				this.mTabHost.setCurrentTabByTag("MORE_TAB");
 				break;
 			}
@@ -122,10 +125,10 @@ public class CEClientActivity extends TabActivity implements
 			public void onTabChanged(String tabId) {
 				
 				Context ct = (mTabHost.getCurrentView().getContext());
-				((SkinChangeable)ct).ChangeSkin("cewedo.skn");
+				((SkinChangeable)ct).ChangeSkin();
 				if(tabId=="D_TAB")
 				{
-					((SkinChangeable)ct).ChangeSkin("default");
+					((SkinChangeable)ct).ChangeSkin();
 				}
 			}
 		});
@@ -141,10 +144,8 @@ public class CEClientActivity extends TabActivity implements
 	}
 
 	@Override
-	public void ChangeSkin(String skinNameString) {
-		
-		try {
-			SkinManager skinManager = new SkinManager(skinNameString,
+	public void ChangeSkin() {
+			SkinManager skinManager = new SkinManager(CEConfiguration.getSkinPackageName(this),
 					CEClientActivity.this);
 			// Ìæ»»ÆäËû±³¾°
 			this.mTabHost.setBackgroundDrawable(skinManager
@@ -178,10 +179,7 @@ public class CEClientActivity extends TabActivity implements
 			moreRadioButton.setCompoundDrawables(null, skinManager
 					.getRectDrawableResource(R.drawable.main_radio_more), null,
 					null);
-
-		} catch (NameNotFoundException e) {
-		}
-
+		super.ChangeSkin();
 	}
   
 

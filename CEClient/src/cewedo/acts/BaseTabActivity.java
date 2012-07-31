@@ -1,16 +1,14 @@
 package cewedo.acts;
 
 import cewedo.others.Global;
+import cewedo.skn.SkinChangeable;
 import android.app.TabActivity;
 import android.os.Bundle;
 import android.widget.TabHost;
 
-public class BaseTabActivity extends TabActivity {
-protected String mCurrentSkinPakageNameString="";
-	
+public class BaseTabActivity extends TabActivity implements SkinChangeable{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		
 		super.onCreate(savedInstanceState);
 		Global.getCurrentAcitivities().add(this);
 	}
@@ -20,13 +18,15 @@ protected String mCurrentSkinPakageNameString="";
 	 */
 	@Override
 	protected void onDestroy() {
-		// TODO Auto-generated method stub
 		super.onDestroy();
 		Global.getCurrentAcitivities().remove(this);
 	}
 
-	public void ChangeSkin(String skinPackageString) {
-		mCurrentSkinPakageNameString=skinPackageString;
-		
+	@Override
+	public void ChangeSkin() {
 	}
+
+
+
+
 }
