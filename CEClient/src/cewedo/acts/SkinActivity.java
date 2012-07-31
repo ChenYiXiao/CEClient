@@ -37,12 +37,10 @@ public class SkinActivity extends BaseActivity {
 				SkinItem skinItem=(SkinItem) skinsGridView.getAdapter().getItem(arg2);
 				CEConfiguration.setSkinName(SkinActivity.this, skinItem.getNameString());
 				CEConfiguration.setSkinPackageName(SkinActivity.this, skinItem.getPackageString());
+				
+				SkinManager.updateActsSkin();
 				Toast.makeText(SkinActivity.this, "当前皮肤已经切换成 "+CEConfiguration.getSkinName(SkinActivity.this)
-				, 2000).show();
-				for (Activity activity: Global.getCurrentAcitivities())
-				{
-					((SkinChangeable)activity).ChangeSkin();
-				}
+						, 2000).show();
 			}
 		});
 		ibBack=(ImageButton)findViewById(R.id.ibBack);

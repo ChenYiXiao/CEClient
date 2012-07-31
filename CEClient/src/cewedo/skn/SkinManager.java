@@ -161,6 +161,14 @@ public class SkinManager {
 		CEConfiguration.setSkinPackageName(context, skinPackageName);
 		SkinManager.updateActsSkin();
 	}
+	public static void setDayMode(Context context)
+	{
+		final String skinName = "ло©м";
+		final String skinPackageName = "cewedo.acts";
+		CEConfiguration.setSkinName(context, skinName);
+		CEConfiguration.setSkinPackageName(context, skinPackageName);
+		SkinManager.updateActsSkin();
+	}
 	public static void updateActsSkin()
 	{
 		for (Activity activity: Global.getCurrentAcitivities())
