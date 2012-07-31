@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -49,21 +50,16 @@ public class SkinItemAdapter extends BaseAdapter {
 		skinItemLayout = (LinearLayout) layoutInflater.inflate(
 				R.layout.itemskin, null);
 		// 设置图片
-		ImageButton imageButton = (ImageButton) skinItemLayout
+		ImageView imageView = (ImageView) skinItemLayout
 				.findViewById(R.id.imgPreview);
-		imageButton.setImageDrawable(currentSkinItem.getPreviewDrawable());
+		imageView.setImageDrawable(currentSkinItem.getPreviewDrawable());
 		// 设置文本
 		TextView skinNameTextView = (TextView) skinItemLayout
 				.findViewById(R.id.tvSkinName);
 		skinNameTextView.setText(currentSkinItem.getNameString());
 
 		// 长按监听
-		skinItemLayout.setOnLongClickListener(new View.OnLongClickListener() {
-			@Override
-			public boolean onLongClick(View v) {
-				return false;
-			}
-		});
+		
 		return skinItemLayout;
 
 	}
