@@ -43,7 +43,7 @@
         android:paddingRight="5px" >
 
         <ImageButton
-            android:id="@+id/imageButton1"
+            android:id="@+id/ibBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@null"
