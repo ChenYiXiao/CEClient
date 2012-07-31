@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import cewedo.acts.R;
 import cewedo.acts.SkinActivity;
 import cewedo.acts.R.menu;
+import cewedo.others.CommonOperation;
 
 public class MenuManager {
 	public static void  getMenu(Menu menu,int id,Activity activity) {
@@ -20,7 +21,9 @@ public class MenuManager {
 		case R.id.menuSkinManager:
 			activity.startActivity(new Intent(activity,SkinActivity.class));
 			break;
-
+		case R.id.menuExit:
+			CommonOperation.showExitDialog(activity);
+			break;
 		default:
 			break;
 		}
