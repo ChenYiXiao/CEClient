@@ -8,7 +8,7 @@
     	    android:title="@string/skinManagement"
     	    ></item>
     	<item android:id="@+id/menuNight"
-  			android:title="@string/SkinNight"
+  			android:title="@string/skinNight"
   			/>
     	<item android:id="@+id/menuAbout"
   			android:title="@string/about"
