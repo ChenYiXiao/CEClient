@@ -3,22 +3,18 @@ package cewedo.acts;
 import cewedo.menu.MenuManager;
 import cewedo.others.CEConfiguration;
 import cewedo.others.CommonOperation;
-import cewedo.skn.SkinChangeable;
 import cewedo.skn.SkinManager;
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
-import android.content.DialogInterface;
-import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Toast;
 
+/**Ê×Ò³»î¶¯
+ * @author Administrator
+ *
+ */
 public class HomeActivity extends BaseActivity{
 
 	@Override

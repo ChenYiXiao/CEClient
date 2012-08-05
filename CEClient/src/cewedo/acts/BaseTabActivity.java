@@ -4,8 +4,11 @@ import cewedo.others.Global;
 import cewedo.skn.SkinChangeable;
 import android.app.TabActivity;
 import android.os.Bundle;
-import android.widget.TabHost;
 
+/**基础TabActivity类，实现换肤的接口
+ * @author Administrator
+ *
+ */
 public class BaseTabActivity extends TabActivity implements SkinChangeable{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -13,9 +16,7 @@ public class BaseTabActivity extends TabActivity implements SkinChangeable{
 		Global.getCurrentAcitivities().add(this);
 	}
 
-	/* (non-Javadoc)
-	 * @see android.app.Activity#onDestroy()
-	 */
+
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();

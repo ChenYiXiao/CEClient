@@ -1,11 +1,10 @@
 package cewedo.others;
 
-import cewedo.skn.SkinItem;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
-/**
+/**全局设置读取设置类
  * @author CYX
  *全局设置类
  */

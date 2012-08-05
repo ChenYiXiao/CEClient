@@ -5,6 +5,10 @@ import cewedo.skn.SkinChangeable;
 import android.app.Activity;
 import android.os.Bundle;
 
+/**基础Activity实现对换肤的接口
+ * @author CYX	
+ *
+ */
 public class BaseActivity extends Activity implements SkinChangeable{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

@@ -12,8 +12,8 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
-/**
- * @author Administrator
+/**处理Http请求的类
+ * @author CYX
  *
  */
 

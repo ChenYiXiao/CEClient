@@ -2,28 +2,26 @@ package cewedo.acts;
 
 import cewedo.adapter.SkinItemAdapter;
 import cewedo.others.CEConfiguration;
-import cewedo.others.Global;
-import cewedo.skn.SkinChangeable;
 import cewedo.skn.SkinItem;
 import cewedo.skn.SkinManager;
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+/**»»·ô»î¶¯
+ * @author Administrator
+ *
+ */
 public class SkinActivity extends BaseActivity {
-	private ImageButton ibBack=null;
-	private RadioGroup mainGroup=null;
-	/* (non-Javadoc)
-	 * @see android.app.Activity#onCreate(android.os.Bundle)
-	 */
+	private ImageButton mBackImageButton=null;
+	private RadioGroup mMainRadioGroup=null;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -43,9 +41,9 @@ public class SkinActivity extends BaseActivity {
 						, 2000).show();
 			}
 		});
-		ibBack=(ImageButton)findViewById(R.id.ibBack);
-		mainGroup=(RadioGroup)findViewById(R.id.main_radio);
-		ibBack.setOnClickListener(new OnClickListener() {
+		mBackImageButton=(ImageButton)findViewById(R.id.ibBack);
+		mMainRadioGroup=(RadioGroup)findViewById(R.id.main_radio);
+		mBackImageButton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
@@ -61,8 +59,8 @@ public class SkinActivity extends BaseActivity {
 	@Override
 	public void ChangeSkin() {
 		SkinManager skinManager=new SkinManager(CEConfiguration.getSkinPackageName(this), this);
-		ibBack.setImageDrawable(skinManager.getDrawableResource(R.drawable.btn_back));
-		mainGroup.setBackgroundDrawable(skinManager.getDrawableResource(R.drawable.home_bg_top));
+		mBackImageButton.setImageDrawable(skinManager.getDrawableResource(R.drawable.btn_back));
+		mMainRadioGroup.setBackgroundDrawable(skinManager.getDrawableResource(R.drawable.home_bg_top));
 		super.ChangeSkin();
 	}
 	

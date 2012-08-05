@@ -2,8 +2,8 @@ package cewedo.skn;
 
 import android.graphics.drawable.Drawable;
 
-/**
- * @author Administrator
+/**皮肤项实体类
+ * @author CYX
  *
  */
 public class SkinItem {

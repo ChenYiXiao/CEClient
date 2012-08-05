@@ -1,47 +1,40 @@
 package cewedo.acts;
 
-import cewedo.menu.MenuManager;
 import cewedo.others.CEConfiguration;
 import cewedo.skn.SkinChangeable;
 import cewedo.skn.SkinManager;
-import android.app.Activity;
-import android.app.ActivityManager;
-import android.app.LocalActivityManager;
-import android.app.TabActivity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager.NameNotFoundException;
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.Window;
 import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.TabHost.OnTabChangeListener;
-import android.widget.Toast;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.RadioGroup;
 import android.widget.TabHost;
 
+/**主界面，带有导航框架
+ * @author Administrator
+ *
+ */
 public class CEClientActivity extends BaseTabActivity implements
 		OnCheckedChangeListener, SkinChangeable {
 
 	private TabHost mTabHost;
-	private Intent mAIntent;
+	private Intent mHomeIntent;
 	private Intent mBIntent;
 	private Intent mCIntent;
 	private Intent mDIntent;
 	private Intent mEIntent;
 
-	private RadioGroup bottomRadioGroup;
-	private RadioButton homeRadioButton;
-	private RadioButton squareRadioButton;
-	private RadioButton messageRadioButton;
-	private RadioButton friendRadioButtond;
-	private RadioButton moreRadioButton;
+	private RadioGroup mBottomRadioGroup;
+	private RadioButton mHomeRadioButton;
+	private RadioButton mSquareRadioButton;
+	private RadioButton mMessageRadioButton;
+	private RadioButton mFriendRadioButtond;
+	private RadioButton mMoreRadioButton;
 
 	/** Called when the activity is first created. */
 	@Override
@@ -50,23 +43,23 @@ public class CEClientActivity extends BaseTabActivity implements
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.main);
 
-		this.mAIntent = new Intent(this, HomeActivity.class);
+		this.mHomeIntent = new Intent(this, HomeActivity.class);
 		this.mBIntent = new Intent(this, HomeActivity.class);
 		this.mCIntent = new Intent(this, HomeActivity.class);
 		this.mDIntent = new Intent(this, HomeActivity.class);
 		this.mEIntent = new Intent(this, HomeActivity.class);
-
-		bottomRadioGroup = (RadioGroup) findViewById(R.id.main_radio);
-		homeRadioButton = (RadioButton) findViewById(R.id.radio_home);
-		homeRadioButton.setOnCheckedChangeListener(this);
-		squareRadioButton = ((RadioButton) findViewById(R.id.radio_square));
-		squareRadioButton.setOnCheckedChangeListener(this);
-		messageRadioButton = ((RadioButton) findViewById(R.id.radio_message));
-		messageRadioButton.setOnCheckedChangeListener(this);
-		friendRadioButtond = ((RadioButton) findViewById(R.id.radio_friend));
-		friendRadioButtond.setOnCheckedChangeListener(this);
-		moreRadioButton = ((RadioButton) findViewById(R.id.radio_more));
-		moreRadioButton.setOnCheckedChangeListener(this);
+        //找到全部的Id
+		mBottomRadioGroup = (RadioGroup) findViewById(R.id.main_radio);
+		mHomeRadioButton = (RadioButton) findViewById(R.id.radio_home);
+		mHomeRadioButton.setOnCheckedChangeListener(this);
+		mSquareRadioButton = ((RadioButton) findViewById(R.id.radio_square));
+		mSquareRadioButton.setOnCheckedChangeListener(this);
+		mMessageRadioButton = ((RadioButton) findViewById(R.id.radio_message));
+		mMessageRadioButton.setOnCheckedChangeListener(this);
+		mFriendRadioButtond = ((RadioButton) findViewById(R.id.radio_friend));
+		mFriendRadioButtond.setOnCheckedChangeListener(this);
+		mMoreRadioButton = ((RadioButton) findViewById(R.id.radio_more));
+		mMoreRadioButton.setOnCheckedChangeListener(this);
 
 		setupIntent();
 		ChangeSkin();
@@ -105,7 +98,7 @@ public class CEClientActivity extends BaseTabActivity implements
 		TabHost localTabHost = this.mTabHost;
 
 		localTabHost.addTab(buildTabSpec("A_TAB", R.string.main_home,
-				R.drawable.main_radio_home, this.mAIntent));
+				R.drawable.main_radio_home, this.mHomeIntent));
 
 		localTabHost.addTab(buildTabSpec("B_TAB", R.string.main_messages,
 				R.drawable.main_radio_square, this.mBIntent));
@@ -150,33 +143,33 @@ public class CEClientActivity extends BaseTabActivity implements
 			// 替换其他背景
 			this.mTabHost.setBackgroundDrawable(skinManager
 					.getDrawableResource(R.drawable.main_bg_main));
-			bottomRadioGroup.setBackgroundDrawable(skinManager
+			mBottomRadioGroup.setBackgroundDrawable(skinManager
 					.getDrawableResource(R.drawable.main_bottom_bg));
 			// 替换底部按钮的背景
-			homeRadioButton.setBackgroundDrawable(skinManager
+			mHomeRadioButton.setBackgroundDrawable(skinManager
 					.getDrawableResource(R.drawable.home_btn_bg));
-			squareRadioButton.setBackgroundDrawable(skinManager
+			mSquareRadioButton.setBackgroundDrawable(skinManager
 					.getDrawableResource(R.drawable.home_btn_bg));
-			messageRadioButton.setBackgroundDrawable(skinManager
+			mMessageRadioButton.setBackgroundDrawable(skinManager
 					.getDrawableResource(R.drawable.home_btn_bg));
-			friendRadioButtond.setBackgroundDrawable(skinManager
+			mFriendRadioButtond.setBackgroundDrawable(skinManager
 					.getDrawableResource(R.drawable.home_btn_bg));
-			moreRadioButton.setBackgroundDrawable(skinManager
+			mMoreRadioButton.setBackgroundDrawable(skinManager
 					.getDrawableResource(R.drawable.home_btn_bg));
 			// 替换底部按钮
-			homeRadioButton.setCompoundDrawables(null, skinManager
+			mHomeRadioButton.setCompoundDrawables(null, skinManager
 					.getRectDrawableResource(R.drawable.main_radio_home), null,
 					null);
-			squareRadioButton.setCompoundDrawables(null, skinManager
+			mSquareRadioButton.setCompoundDrawables(null, skinManager
 					.getRectDrawableResource(R.drawable.main_radio_square),
 					null, null);
-			messageRadioButton.setCompoundDrawables(null, skinManager
+			mMessageRadioButton.setCompoundDrawables(null, skinManager
 					.getRectDrawableResource(R.drawable.main_radio_message),
 					null, null);
-			friendRadioButtond.setCompoundDrawables(null, skinManager
+			mFriendRadioButtond.setCompoundDrawables(null, skinManager
 					.getRectDrawableResource(R.drawable.main_radio_friend),
 					null, null);
-			moreRadioButton.setCompoundDrawables(null, skinManager
+			mMoreRadioButton.setCompoundDrawables(null, skinManager
 					.getRectDrawableResource(R.drawable.main_radio_more), null,
 					null);
 		super.ChangeSkin();

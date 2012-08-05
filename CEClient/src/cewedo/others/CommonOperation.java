@@ -6,6 +6,10 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.widget.Toast;
 
+/**通用操作，随着项目的变大可能被移除该类
+ * @author CYX
+ *
+ */
 public class CommonOperation {
 	public static void showShortToast(String text,Context context)
 	{

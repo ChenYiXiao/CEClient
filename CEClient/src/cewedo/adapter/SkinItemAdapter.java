@@ -9,28 +9,31 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+/**皮肤菜单项的适配器
+ * @author CYX
+ *
+ */
 public class SkinItemAdapter extends BaseAdapter {
-	private List<SkinItem> skinsSkinItems = null;
-	private Context context = null;
+	private List<SkinItem> mSkinsSkinItems = null;
+	private Context mContext = null;
 
 	public SkinItemAdapter(List<SkinItem> skinsSkinItems, Context context) {
-		this.context = context;
-		this.skinsSkinItems = skinsSkinItems;
+		this.mContext = context;
+		this.mSkinsSkinItems = skinsSkinItems;
 	}
 
 	@Override
 	public int getCount() {
-		return skinsSkinItems.size();
+		return mSkinsSkinItems.size();
 	}
 
 	@Override
 	public Object getItem(int arg0) {
-		return skinsSkinItems.get(arg0);
+		return mSkinsSkinItems.get(arg0);
 	}
 
 	@Override
@@ -41,9 +44,9 @@ public class SkinItemAdapter extends BaseAdapter {
 	@Override
 	public View getView(int positon, View convertView, ViewGroup parent) {
 		String inflaterString = Context.LAYOUT_INFLATER_SERVICE;
-		SkinItem currentSkinItem = skinsSkinItems.get(positon);
+		SkinItem currentSkinItem = mSkinsSkinItems.get(positon);
 
-		LayoutInflater layoutInflater = (LayoutInflater) context
+		LayoutInflater layoutInflater = (LayoutInflater) mContext
 				.getSystemService(inflaterString);
 		// 得到Item的线性布局
 		LinearLayout skinItemLayout = null;

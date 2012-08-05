@@ -5,44 +5,48 @@ import java.util.List;
 
 import android.app.Activity;
 
+/**全局变量类，该类存放一些全局变量
+ * @author CYX
+ *
+ */
 public class Global {
-	private static String SkinName="";
-	private static String SkinPackageName="" ;	
-	private static List<Activity> CurrentAcitivities=new ArrayList<Activity>();
+	private static String mSkinName="";
+	private static String mSkinPackageName="" ;	
+	private static List<Activity> mCurrentAcitivities=new ArrayList<Activity>();
 	/**
 	 * @return the skinName
 	 */
 	public static String getSkinName() {
-		return SkinName;
+		return mSkinName;
 	}
 	/**
 	 * @param skinName the skinName to set
 	 */
 	public static void setSkinName(String skinName) {
-		SkinName = skinName;
+		mSkinName = skinName;
 	}
 	/**
 	 * @return the skinPackageName
 	 */
 	public static String getSkinPackageName() {
-		return SkinPackageName;
+		return mSkinPackageName;
 	}
 	/**
 	 * @param skinPackageName the skinPackageName to set
 	 */
 	public static void setSkinPackageName(String skinPackageName) {
-		SkinPackageName = skinPackageName;
+		mSkinPackageName = skinPackageName;
 	}
 	/**
 	 * @return the currentAcitivities
 	 */
 	public static List<Activity> getCurrentAcitivities() {
-		return CurrentAcitivities;
+		return mCurrentAcitivities;
 	}
 	/**
 	 * @param currentAcitivities the currentAcitivities to set
 	 */
 	public static void setCurrentAcitivities(List<Activity> currentAcitivities) {
-		CurrentAcitivities = currentAcitivities;
+		mCurrentAcitivities = currentAcitivities;
 	}
 }
